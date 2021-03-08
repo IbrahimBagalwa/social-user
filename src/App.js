@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import axios from 'axios'
+import {useState, useEffect} from 'react'
 import './App.css';
-
+import Social from './compenents/social/social.compent';
 function App() {
+  const  [users, setUsers] = useState([]);
+  useEffect(() => {
+    axios.get('https://randomuser.me/api/?results=30')
+    .then(res=>setUsers(res.data.results))
+    .catch(err=>console.log(err))  
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {users.map((user,index)=>(
+      <Social user={user} key={index}/>
+      ))}
     </div>
   );
 }
