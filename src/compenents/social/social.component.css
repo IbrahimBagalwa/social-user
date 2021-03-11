@@ -8,17 +8,20 @@
     box-shadow: 6px 6px 6px 0 black;
     transition: transform .3s ease;
     border-radius: 10px;
+
 }
 .card-title{
     font-size: 14px;
     font-weight: 800;   
 }
-.card-pict{
-    display: flex;
-    justify-content: flex-end;
+.card-body{
+   
 }
 .images{
     margin-right: -15px;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 100%;
 }
 .gender{
     display: flex;
